@@ -1,0 +1,10 @@
+venv/
+__pycache__/
+*.pyc
+models/original/
+models/quantized/
+
+results/raw/*.csv
+.DS_Store
+Thumbs.db
+.vscode/
