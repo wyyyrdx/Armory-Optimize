@@ -1,0 +1,32 @@
+name: Benchmark on Arm64
+
+on:
+  workflow_dispatch:
+
+jobs:
+  benchmark-arm64:
+    runs-on: ubuntu-24.04-arm
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install transformers torch
+
+      - name: Download model
+        run: python models/download_model.py
+
+      - name: Run benchmark
+        run: python benchmark/harness.py
+
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: arm64-results
+          path: results/raw/*.json
