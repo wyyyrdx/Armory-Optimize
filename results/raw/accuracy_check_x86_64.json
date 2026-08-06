@@ -1,0 +1,54 @@
+{
+  "agreement_rate_pct": 100.0,
+  "num_sentences": 6,
+  "details": [
+    {
+      "sentence": "This movie was absolutely fantastic, I loved every minute of it!",
+      "fp32_label": "POSITIVE",
+      "fp32_confidence": 0.999881386756897,
+      "int8_label": "POSITIVE",
+      "int8_confidence": 0.9998748302459717,
+      "match": true
+    },
+    {
+      "sentence": "Worst film I have ever seen, complete waste of time.",
+      "fp32_label": "NEGATIVE",
+      "fp32_confidence": 0.9997875094413757,
+      "int8_label": "NEGATIVE",
+      "int8_confidence": 0.9997606873512268,
+      "match": true
+    },
+    {
+      "sentence": "The acting was great but the plot made no sense at all.",
+      "fp32_label": "NEGATIVE",
+      "fp32_confidence": 0.9994826316833496,
+      "int8_label": "NEGATIVE",
+      "int8_confidence": 0.9989210367202759,
+      "match": true
+    },
+    {
+      "sentence": "I would definitely recommend this to all my friends.",
+      "fp32_label": "POSITIVE",
+      "fp32_confidence": 0.9997392296791077,
+      "int8_label": "POSITIVE",
+      "int8_confidence": 0.9997265934944153,
+      "match": true
+    },
+    {
+      "sentence": "Terribly boring and way too long, I almost fell asleep.",
+      "fp32_label": "NEGATIVE",
+      "fp32_confidence": 0.9997740387916565,
+      "int8_label": "NEGATIVE",
+      "int8_confidence": 0.9997594952583313,
+      "match": true
+    },
+    {
+      "sentence": "A masterpiece of modern cinema, beautifully directed.",
+      "fp32_label": "POSITIVE",
+      "fp32_confidence": 0.9998831748962402,
+      "int8_label": "POSITIVE",
+      "int8_confidence": 0.9998742341995239,
+      "match": true
+    }
+  ]
+}
