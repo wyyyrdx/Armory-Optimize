@@ -1,5 +1,8 @@
 {
   "model_size_mb": 256.1045389175415,
-  "avg_latency_ms": 20.69252502000097,
-  "throughput_rps": 48.32662998031513
+  "avg_latency_ms": 30.146436770002083,
+  "std_latency_ms": 2.4047139286766317,
+  "throughput_rps": 33.171416165345065,
+  "num_runs": 100,
+  "num_test_sentences": 4
 }
