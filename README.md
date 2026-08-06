@@ -105,11 +105,6 @@ python optimize/quantize.py --model-dir models/my_model --label my_model_int8
 
 Both scripts work on any Hugging Face sequence-classification model:
 
-\`\`\`bash
-python models/download_model.py --model bert-base-uncased --save-dir models/my_model
-python optimize/quantize.py --model-dir models/my_model --label my_model_int8
-\`\`\`
-
 ## License
 
 MIT — see [LICENSE](./LICENSE).
