@@ -101,6 +101,15 @@ python optimize/quantize.py --model-dir models/my_model --label my_model_int8
 - Benchmarks compare a GitHub Actions x86_64 runner against a GitHub Actions Arm64 runner. These are different underlying cloud instances, so some of the raw latency difference may reflect instance-level differences in addition to architecture — I call this out rather than overstating a pure "Arm vs x86" claim.
 - Only dynamic quantization on Linear layers is applied; static quantization and ONNX export are natural next steps.
 
+## Reuse this on your own model
+
+Both scripts work on any Hugging Face sequence-classification model:
+
+\`\`\`bash
+python models/download_model.py --model bert-base-uncased --save-dir models/my_model
+python optimize/quantize.py --model-dir models/my_model --label my_model_int8
+\`\`\`
+
 ## License
 
 MIT — see [LICENSE](./LICENSE).
