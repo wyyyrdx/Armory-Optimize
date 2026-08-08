@@ -1,0 +1,29 @@
+name: ExecuTorch on Arm64
+
+on:
+  workflow_dispatch:
+
+jobs:
+  executorch-arm64:
+    runs-on: ubuntu-24.04-arm
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install ExecuTorch
+        run: pip install executorch
+
+      - name: Upgrade transformers (avoid version conflicts)
+        run: pip install --upgrade transformers sentencepiece
+
+      - name: Download original model
+        run: python models/download_model.py
+
+      - name: Export and benchmark via ExecuTorch/XNNPACK
+        run: python experimental/executorch/export_executorch.py
