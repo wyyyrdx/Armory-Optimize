@@ -19,6 +19,9 @@ jobs:
       - name: Install ExecuTorch
         run: pip install executorch
 
+      - name: Remove conflicting torchvision if present
+        run: pip uninstall -y torchvision || true
+
       - name: Upgrade transformers (avoid version conflicts)
         run: pip install --upgrade transformers sentencepiece
 
