@@ -5,7 +5,7 @@
 ![Quantize on Arm64](https://github.com/wyyyrdx/Armory-Optimize/actions/workflows/quantize-arm64.yml/badge.svg)
 ![ExecuTorch on Arm64](https://github.com/wyyyrdx/Armory-Optimize/actions/workflows/executorch-arm64.yml/badge.svg)
 
-**Submission for the [Arm Create: AI Optimization Challenge 2026](https://arm-ai-optimization-challenge.devpost.com)**
+**Submission for the [Arm Create: AI Optimization Challenge 2026](https://arm-ai-optimization-challenge.devpost.com) - Cloud AI Track**
 
 ## What I optimized (the Arm story)
 
@@ -25,6 +25,7 @@ python models/download_model.py
 python benchmark/harness.py # baseline FP32
 python optimize/quantize.py # INT8 quantization
 python optimize/check_accuracy.py # verify predictions still match
+pip install matplotlib
 python report/generate_charts.py # regenerate charts
 
 # ExecuTorch path (separate install, larger download):
@@ -70,13 +71,13 @@ I compared predictions from the original FP32 model and the quantized INT8 model
 
 Before quantization, Arm64 was ~3.1x faster than x86_64 on the same FP32 model. After INT8 quantization, that gap nearly disappeared, both architectures converge to roughly the same latency (~25 ms). A follow-up run with more statistical rigor (100 runs across 4 sentences of varying length, tracking standard deviation) confirmed this pattern holds and isn't a measurement fluke.
 
-My read: PyTorch dispatches to different quantized backends depending on architecture, `fbgemm` on x86, `qnnpack` on Arm and `fbgemm` appears more aggressively optimized for INT8 on x86 in this PyTorch version. This is exactly why the ExecuTorch/XNNPACK result matters: the *engine* running the model on Arm matters as much as the quantization technique itself.
+My read: PyTorch dispatches to different quantized backends depending on architecture `fbgemm` on x86, `qnnpack` on Arm and `fbgemm` appears more aggressively optimized for INT8 on x86 in this PyTorch version. This is exactly why the ExecuTorch/XNNPACK result matters: the *engine* running the model on Arm matters as much as the quantization technique itself.
 
 ## How the optimization works
 
 1. Load the pretrained FP32 DistilBERT model from Hugging Face.
 2. **Quantization path**: apply `torch.quantization.quantize_dynamic`, converting `Linear` layers to 8-bit integers, with the correct backend selected per architecture (`qnnpack` for Arm64, `fbgemm` for x86_64).
-3. **ExecuTorch path**: export the model with `torch.export`, lower it through ExecuTorch's XNNPACK backend, and run it via the ExecuTorch runtime, this automatically uses Arm's KleidiAI kernels where available.
+3. **ExecuTorch path**: export the model with `torch.export`, lower it through ExecuTorch's XNNPACK backend, and run it via the ExecuTorch runtime — this automatically uses Arm's KleidiAI kernels where available.
 4. Benchmark model size, latency, and throughput identically across every configuration, and verify the quantized model's predictions still agree with the original.
 
 All Arm64 numbers were produced on **GitHub Actions' native `ubuntu-24.04-arm` hosted runners** real Arm64 silicon, not emulation.
@@ -104,4 +105,4 @@ python optimize/quantize.py --model-dir models/my_model --label my_model_int8
 
 ## License
 
-MIT — see [LICENSE](./LICENSE).
+MIT - see [LICENSE](./LICENSE).
