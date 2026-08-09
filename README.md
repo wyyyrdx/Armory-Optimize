@@ -29,6 +29,8 @@ python report/generate_charts.py # regenerate charts
 
 # ExecuTorch path (separate install, larger download):
 pip install executorch
+pip uninstall -y torchvision # avoids a version conflict with the torch pulled in by executorch
+pip install --upgrade transformers sentencepiece
 python experimental/executorch/export_executorch.py
 ```
 
