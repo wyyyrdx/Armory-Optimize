@@ -9,5 +9,5 @@ results/raw/*.csv
 Thumbs.db
 .vscode/
 
-node_model/
+node_modules/
 .env
