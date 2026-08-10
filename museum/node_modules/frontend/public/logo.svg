@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- sticker white border -->
+  <ellipse cx="200" cy="210" rx="176" ry="156" fill="#ffffff" stroke="#1a1030" stroke-width="10"/>
+  <!-- background fill -->
+  <ellipse cx="200" cy="210" rx="160" ry="140" fill="#5ee7f0"/>
+
+  <!-- smoke -->
+  <path d="M330 235 Q345 210 335 190 Q325 170 340 150 Q350 135 340 115"
+        fill="none" stroke="#1a1030" stroke-width="9" stroke-linecap="round"/>
+
+  <!-- back leg (far) -->
+  <path d="M255 320 Q265 350 250 375 Q240 392 218 388 Q205 385 210 368 Q214 355 230 350 Q222 335 232 318 Z"
+        fill="#1a1030"/>
+
+  <!-- front leg (near) -->
+  <path d="M195 300 Q185 335 150 350 Q125 360 108 385 Q98 402 78 396 Q62 390 68 372 Q73 358 92 348 Q118 335 130 310 Q140 292 165 285 Z"
+        fill="#1a1030"/>
+
+  <!-- tail fin -->
+  <path d="M40 245 L145 225 L105 270 L150 300 L40 300 L75 272 Z" fill="#1a1030"/>
+
+  <!-- body / head silhouette -->
+  <path d="M110 240
+           C95 200, 110 160, 155 150
+           C165 130, 190 118, 215 122
+           C245 126, 258 148, 300 200
+           C330 218, 340 232, 305 245
+           L268 250
+           C255 268, 220 278, 190 272
+           C155 265, 120 262, 110 240 Z"
+        fill="#1a1030"/>
+
+  <!-- sunglasses band -->
+  <path d="M170 118 Q192 88 222 96 Q248 104 252 130"
+        fill="none" stroke="#1a1030" stroke-width="10" stroke-linecap="round"/>
+  <rect x="163" y="128" rx="6" ry="6" width="98" height="24" fill="#ffffff" stroke="#1a1030" stroke-width="7"/>
+
+  <!-- eye -->
+  <ellipse cx="222" cy="195" rx="42" ry="30" fill="#ffffff"/>
+  <circle cx="228" cy="195" r="17" fill="#1a1030"/>
+
+  <!-- pipe -->
+  <rect x="265" y="222" width="90" height="16" rx="6" transform="rotate(-8 265 222)" fill="#1a1030"/>
+</svg>

@@ -8,3 +8,6 @@ results/raw/*.csv
 .DS_Store
 Thumbs.db
 .vscode/
+
+node_model/
+.env
