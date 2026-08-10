@@ -1,7 +1,5 @@
 # Museum of Useless Knowledge
 
-**Submission for the [Arm Create: AI Optimization Challenge 2026](https://arm-ai-optimization-challenge.devpost.com) — Cloud AI Track**
-
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![Benchmark on Arm64](https://github.com/wyyyrdx/Armory-Optimize/actions/workflows/benchmark-arm64.yml/badge.svg)
 ![Quantize on Arm64](https://github.com/wyyyrdx/Armory-Optimize/actions/workflows/quantize-arm64.yml/badge.svg)
