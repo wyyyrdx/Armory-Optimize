@@ -37,6 +37,7 @@ export default function Submit() {
         <h2>Submit a Strange Fact</h2>
         <p className="hint">Hand it to the curator. Get scored.</p>
         <textarea
+          id="fact-input"
           rows={4}
           value={text}
           onChange={(e) => setText(e.target.value)}

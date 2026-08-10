@@ -1,3 +1,7 @@
 fastapi>=0.110.0
 uvicorn[standard]>=0.27.0
 pydantic>=2.0
+# The original Armory ML stack (kept for benchmark reproducibility):
+# transformers
+# torch
+# (install those only when running the original optimize/benchmark scripts)
