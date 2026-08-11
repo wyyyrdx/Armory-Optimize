@@ -1,5 +1,4 @@
 # Museum of Useless Knowledge
-
 **Facts you absolutely did not need to know.**  
 Powered by a real Arm-optimized NLP pipeline.
 
