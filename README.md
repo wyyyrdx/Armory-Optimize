@@ -1,12 +1,13 @@
 # Museum of Useless Knowledge
 
+**Facts you absolutely did not need to know.**  
+Powered by a real Arm-optimized NLP pipeline.
+
+
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![Benchmark on Arm64](https://github.com/wyyyrdx/Armory-Optimize/actions/workflows/benchmark-arm64.yml/badge.svg)
 ![Quantize on Arm64](https://github.com/wyyyrdx/Armory-Optimize/actions/workflows/quantize-arm64.yml/badge.svg)
 ![ExecuTorch on Arm64](https://github.com/wyyyrdx/Armory-Optimize/actions/workflows/executorch-arm64.yml/badge.svg)
-
-**Facts you absolutely did not need to know.**  
-Powered by a real Arm-optimized NLP pipeline.
 
 ---
 
