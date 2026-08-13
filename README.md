@@ -14,18 +14,22 @@ Powered by a real Arm-optimized NLP pipeline.
 
 A slightly unhinged web museum full of useless facts, with a real Arm64 optimization project underneath.
 
-You can browse weird exhibits, collect badges, submit your own facts, and check the **Arm Performance** page for the actual benchmark numbers.
+You can browse weird exhibits, collect badges, submit your own facts, and check the **Arm Performance** page for the actual benchmark results.
+
+Behind the playful museum is a real NLP optimization experiment using DistilBERT for sentiment analysis.
 
 ---
 
-## What I optimized (the Arm story)
+## The Arm Optimization
 
-I took a real NLP model (DistilBERT, fine-tuned for sentiment analysis) and optimized it for Arm64 in two ways:
+I used **DistilBERT**, fine-tuned for sentiment analysis, and evaluated two optimization paths:
 
-1. **INT8 dynamic quantization**
-2. **ExecuTorch + XNNPACK** (uses Arm’s KleidiAI kernels automatically)
+- **INT8 dynamic quantization**
+- **ExecuTorch + XNNPACK**
 
-Every result comes from real Arm64 and x86_64 hardware — no emulation.
+The goal was to measure how the same AI workload behaves on **Arm64 vs x86_64**, before and after optimization.
+
+Every benchmark was run on real hardware **no emulation**.
 
 ### Results (Real Hardware)
 
@@ -35,11 +39,35 @@ Every result comes from real Arm64 and x86_64 hardware — no emulation.
 | Avg latency  | 65.12 ms    | 21.07 ms   | 25.24 ms    | 25.40 ms   |
 | Throughput   | 15.36 req/s | 47.47 req/s| 39.62 req/s | 39.37 req/s|
 
-**Honest finding:**  
-Arm64 was ~3.1× faster than x86 at FP32, but after INT8 quantization the gap almost disappeared. Both architectures ended up around ~25 ms latency.
+### The interesting part
 
-The ExecuTorch path was ~1.6× faster than FP32 and about 2× faster than standard INT8 quantization.
+Arm64 was approximately **3.1× faster than x86_64 at FP32**.
 
+After INT8 quantization, however, the gap almost completely disappeared:
+
+- x86_64: **25.24 ms**
+- Arm64: **25.40 ms**
+
+Both architectures ended up around **25 ms latency**.
+
+INT8 also reduced the model size from **256.10 MB → 132.29 MB**, a reduction of approximately **48%**.
+
+This was not the result I expected.
+
+Instead of hiding it, I kept it, because it demonstrates something more useful:
+
+> **Arm optimization is something to measure, not assume.**
+
+### ExecuTorch + XNNPACK
+
+The ExecuTorch + XNNPACK path was also substantially faster than the baseline paths in our measurements.
+
+The measured result was approximately:
+
+- **1.6× faster than the FP32 baseline**
+- **2× faster than the standard INT8 path**
+
+The current ExecuTorch path runs FP32; the internal PT2E INT8 quantization path was not included because of dependency and version conflicts.
 ---
 
 ## How the optimization works
@@ -131,4 +159,4 @@ Then open: [http://localhost:5173](http://localhost:5173)
 
 ## License
 
-MIT — see [LICENSE](./LICENSE).
+MIT - see [LICENSE](./LICENSE).
